@@ -5,9 +5,11 @@ const Dinosaur = require('../models/dinosaur.js');
 describe('Park', function() {
 
   let park;
+  let trike;
 
   beforeEach(function () {
     park = new Park('Jurassic Park', 30);
+    trike = new Dinosaur('tricerotops', 'herbivore', 40);
   })
 
   it('should have a name', function(){
@@ -25,7 +27,11 @@ describe('Park', function() {
     assert.strictEqual(actual, 0);
   });
 
-  it('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function(){
+    park.addDinosaur(trike)
+    const actual = park.dinosaurs;
+    assert.deepStrictEqual(actual, [trike])
+  });
 
   it('should be able to remove a dinosaur from its collection');
 
