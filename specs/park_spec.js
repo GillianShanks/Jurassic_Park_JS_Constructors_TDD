@@ -49,7 +49,12 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, trex)
   });
 
-  it('should be able to find all dinosaurs of a particular species');
+  it('should be able to find all dinosaurs of a particular species', function(){
+    park.addDinosaur(trike);
+    park.addDinosaur(trex);
+    const actual = park.allOfDiet('herbivore');
+    assert.deepStrictEqual(actual, [trike]);
+  });
 
   it('should be able to remove all dinosaurs of a particular species');
 
