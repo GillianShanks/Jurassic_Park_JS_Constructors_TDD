@@ -19,7 +19,7 @@ Park.prototype.removeDinosaur = function (dinosaur) {
 
 Park.prototype.mostGuestsAttracted = function () {
   let topDinosaur = this.dinosaurs[0];
-  for (dinosaur of this.dinosaurs){
+  for (let dinosaur of this.dinosaurs){
     if (dinosaur.guestsAttractedPerDay > topDinosaur.guestsAttractedPerDay){
       topDinosaur = dinosaur;
     };
@@ -29,7 +29,7 @@ Park.prototype.mostGuestsAttracted = function () {
 
 Park.prototype.allOfSpecies = function (species) {
   let speciesGroup = [];
-  for (dinosaur of this.dinosaurs){
+  for (let dinosaur of this.dinosaurs){
     if (dinosaur.species === species){
       speciesGroup.push(dinosaur);
     };
@@ -39,7 +39,7 @@ Park.prototype.allOfSpecies = function (species) {
 
 Park.prototype.removeDinosaurSpecies = function (species) {
   let speciesGroup = this.allOfSpecies(species);
-  for (dinosaur of speciesGroup){
+  for (let dinosaur of speciesGroup){
     this.removeDinosaur(dinosaur);
   };
 
@@ -47,10 +47,14 @@ Park.prototype.removeDinosaurSpecies = function (species) {
 
 Park.prototype.visitorAverageDaily = function(){
   let dailyVisitors = 0;
-  for (dinosaur of this.dinosaurs){
+  for (let dinosaur of this.dinosaurs){
     dailyVisitors += dinosaur.guestsAttractedPerDay;
   }
   return dailyVisitors;
+};
+
+Park.prototype.visitorAverageYearly = function () {
+  return this.visitorAverageDaily() * 12;
 };
 
 module.exports = Park;
