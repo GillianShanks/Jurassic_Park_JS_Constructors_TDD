@@ -27,14 +27,14 @@ Park.prototype.mostGuestsAttracted = function () {
   return topDinosaur;
 };
 
-Park.prototype.allOfDiet = function (diet) {
-  let dietGroup = [];
+Park.prototype.allOfSpecies = function (species) {
+  let speciesGroup = [];
   for (dinosaur of this.dinosaurs){
-    if (dinosaur.diet === diet){
-      dietGroup.push(dinosaur);
+    if (dinosaur.species === species){
+      speciesGroup.push(dinosaur);
     };
   };
-  return dietGroup;
+  return speciesGroup;
 };
 
 module.exports = Park;
