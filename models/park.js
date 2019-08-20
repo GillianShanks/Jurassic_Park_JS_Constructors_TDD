@@ -37,4 +37,12 @@ Park.prototype.allOfSpecies = function (species) {
   return speciesGroup;
 };
 
+Park.prototype.removeDinosaurSpecies = function (species) {
+  let speciesGroup = this.allOfSpecies(species);
+  for (dinosaur of speciesGroup){
+    this.removeDinosaur(dinosaur);
+  };
+
+};
+
 module.exports = Park;

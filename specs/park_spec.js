@@ -61,6 +61,13 @@ describe('Park', function() {
     assert.deepStrictEqual(actual2, [trex1, trex2])
   });
 
-  it('should be able to remove all dinosaurs of a particular species');
+  it('should be able to remove all dinosaurs of a particular species', function(){
+    park.addDinosaur(trike1);
+    park.addDinosaur(trex1);
+    park.addDinosaur(trex2);
+    park.removeDinosaurSpecies('t-rex');
+    const actual = park.dinosaurs;
+    assert.deepStrictEqual(actual, [trike1])
+  });
 
 });
