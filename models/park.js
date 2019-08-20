@@ -57,4 +57,8 @@ Park.prototype.visitorAverageYearly = function () {
   return this.visitorAverageDaily() * 12;
 };
 
+Park.prototype.yearlyRevenue = function () {
+  return this.visitorAverageYearly() * this.price;
+};
+
 module.exports = Park;
