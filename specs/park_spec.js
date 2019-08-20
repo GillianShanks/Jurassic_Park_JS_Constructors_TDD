@@ -100,7 +100,8 @@ describe('Park', function() {
     park.addDinosaur(trex1);
     park.addDinosaur(trex2);
     const actual = park.numberOfEachDietType();
-    assert.deepStrictEqual(actual, {'canivore': 2, 'herbivore': 1, 'omnivore': 0} )
+    const expected = {'carnivore': 2, 'herbivore': 1, 'omnivore': 0};
+    assert.deepStrictEqual(actual, expected )
   });
 
 });
