@@ -45,4 +45,12 @@ Park.prototype.removeDinosaurSpecies = function (species) {
 
 };
 
+Park.prototype.visitorAverageDaily = function(){
+  let dailyVisitors = 0;
+  for (dinosaur of this.dinosaurs){
+    dailyVisitors += dinosaur.guestsAttractedPerDay;
+  }
+  return dailyVisitors;
+};
+
 module.exports = Park;
