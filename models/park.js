@@ -28,7 +28,7 @@ Park.prototype.mostGuestsAttracted = function () {
 };
 
 Park.prototype.allOfSpecies = function (species) {
-  let speciesGroup = [];
+  const speciesGroup = [];
   for (let dinosaur of this.dinosaurs){
     if (dinosaur.species === species){
       speciesGroup.push(dinosaur);
@@ -38,7 +38,7 @@ Park.prototype.allOfSpecies = function (species) {
 };
 
 Park.prototype.removeDinosaurSpecies = function (species) {
-  let speciesGroup = this.allOfSpecies(species);
+  const speciesGroup = this.allOfSpecies(species);
   for (let dinosaur of speciesGroup){
     this.removeDinosaur(dinosaur);
   };
@@ -54,11 +54,23 @@ Park.prototype.visitorAverageDaily = function(){
 };
 
 Park.prototype.visitorAverageYearly = function () {
-  return this.visitorAverageDaily() * 12;
+  return this.visitorAverageDaily() * 365;
 };
 
 Park.prototype.yearlyRevenue = function () {
   return this.visitorAverageYearly() * this.price;
+};
+
+Park.prototype.numberOfEachDietType = function(){
+  const dinosaurDiets = {'carnivore': 0, 'herbivore': 0, 'omnivore': 0}
+  for (let diet in dinosaurDiets){
+    for (let dinosaur of this.dinosaurs){
+      if (dinosaur.diet === diet){
+        dinosaurDiets[diet]+=1;
+      };
+    };
+  };
+  return dinosaurDiets;
 };
 
 module.exports = Park;

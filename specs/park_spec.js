@@ -84,7 +84,7 @@ describe('Park', function() {
     park.addDinosaur(trex1);
     park.addDinosaur(trex2);
     const actual = park.visitorAverageYearly();
-    assert.strictEqual(actual, 1620)
+    assert.strictEqual(actual, 49275)
   });
 
   it('should calculate the total revenue per year', function(){
@@ -92,7 +92,15 @@ describe('Park', function() {
     park.addDinosaur(trex1);
     park.addDinosaur(trex2);
     const actual = park.yearlyRevenue();
-    assert.strictEqual(actual, 48600)
+    assert.strictEqual(actual, 1478250)
+  });
+
+  it('should provide object of all dinosaur diets', function(){
+    park.addDinosaur(trike1);
+    park.addDinosaur(trex1);
+    park.addDinosaur(trex2);
+    const actual = park.numberOfEachDietType();
+    assert.deepStrictEqual(actual, {'canivore': 2, 'herbivore': 1, 'omnivore': 0} )
   });
 
 });
