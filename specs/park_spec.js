@@ -6,10 +6,12 @@ describe('Park', function() {
 
   let park;
   let trike;
+  let trex;
 
   beforeEach(function () {
     park = new Park('Jurassic Park', 30);
     trike = new Dinosaur('tricerotops', 'herbivore', 40);
+    trex = new Dinosaur('t-rex', 'carnivore', 50);
   })
 
   it('should have a name', function(){
@@ -40,7 +42,12 @@ describe('Park', function() {
     assert.strictEqual(actual, 0);
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function(){
+    park.addDinosaur(trike);
+    park.addDinosaur(trex);
+    const actual = park.mostGuestsAttracted();
+    assert.deepStrictEqual(actual, trex)
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 
